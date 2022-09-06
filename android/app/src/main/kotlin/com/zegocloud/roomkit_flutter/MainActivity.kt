@@ -19,6 +19,8 @@ class MainActivity: FlutterActivity() {
                 "init" -> { pluginHandler.init(call, result, application) }
                 "joinRoom" -> { pluginHandler.joinRoom(call, result, this@MainActivity) }
                 "getDeviceID" -> { pluginHandler.getDeviceID(call, result) }
+                "setIsMicrophoneOnWhenJoiningRoom" -> { pluginHandler.setIsMicrophoneOnWhenJoiningRoom(call, result)}
+                "setIsCameraOnWhenJoiningRoom" -> { pluginHandler.setIsCameraOnWhenJoiningRoom(call, result)}
                 else -> { result.error("error_code", "error_message", null) }
             }
         }

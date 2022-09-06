@@ -63,8 +63,8 @@ class RoomKitPlugin {
   // [joinRoomConfig] Join room parameter configuration
   // [subject] Set the topic of the room
   // [avatarUrl] Set user avatar during chat
-  static Future<Map> joinRoom(ZegoJoinRoomConfig joinRoomConfig,
-      String subject, {String avatarUrl = ''}) async {
+  static Future<Map> joinRoom(ZegoJoinRoomConfig joinRoomConfig, String subject,
+      {String avatarUrl = ''}) async {
     return await channel.invokeMethod("joinRoom", {
       "userName": joinRoomConfig.userName,
       "userID": joinRoomConfig.userID,
@@ -80,5 +80,17 @@ class RoomKitPlugin {
   // Get device's id for generate roomkit sdk token
   static Future<Map> getDeviceID() async {
     return await channel.invokeMethod("getDeviceID", {});
+  }
+
+  // set microphone on/off when you join room
+  static Future<void> setIsMicrophoneOnWhenJoiningRoom(bool isOn) async {
+    return await channel
+        .invokeMethod("setIsMicrophoneOnWhenJoiningRoom", {'isOn': isOn});
+  }
+
+  // set camera on/off when you join room
+  static Future<void> setIsCameraOnWhenJoiningRoom(bool isOn) async {
+    return await channel
+        .invokeMethod("setIsCameraOnWhenJoiningRoom", {'isOn': isOn});
   }
 }

@@ -81,4 +81,16 @@ class RoomKitPlugin: EventChannel.StreamHandler {
     override fun onCancel(arguments: Any?) {
 
     }
+
+    fun setIsCameraOnWhenJoiningRoom(call: MethodCall, result: MethodChannel.Result){
+        val isOn: Boolean = call.argument<Boolean>("isOn")!!
+        ZegoRoomKit.getRoomSettings().setIsCameraOnWhenJoiningRoom(isOn)
+        result.success(null)
+    }
+
+    fun setIsMicrophoneOnWhenJoiningRoom(call: MethodCall, result: MethodChannel.Result){
+        val isOn: Boolean = call.argument<Boolean>("isOn")!!
+        ZegoRoomKit.getRoomSettings().setIsMicrophoneOnWhenJoiningRoom(isOn)
+        result.success(null)
+    }
 }

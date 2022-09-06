@@ -161,7 +161,9 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             TextButton(
                 onPressed: () {
-                  getRoomKitToken().then((roomkitToken) {
+                  getRoomKitToken().then((roomkitToken) async {
+                    // await RoomKitPlugin.setIsMicrophoneOnWhenJoiningRoom(true);
+                    // await RoomKitPlugin.setIsCameraOnWhenJoiningRoom(true);
                     ZegoJoinRoomConfig config = ZegoJoinRoomConfig(
                         _userID,
                         _userName,
